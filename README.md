@@ -1,3 +1,3 @@
 # world-cup-api
 
-To start just `npm install` and then run `gul`
+To get started, run `npm install` and then run `gulp`
