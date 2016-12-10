@@ -36,8 +36,24 @@ class App extends React.Component {
 
 
         if (this.props.hasErrored) {
-            return <p className="ResponseErrored">Whoops !! There was an error loading the matches.</p>;
+
+            return (
+
+                <p className="ResponseErrored">
+
+                    <h1>
+                        Whoops!! Something went wrong. 
+                    </h1>
+
+                    <h3>
+                        Double check the <em>Country Code</em> or reload and try again.
+                    </h3>
+
+                </p>
+
+            );
         }
+        
         if (this.props.isLoading) {
             return <p className="ResponseLoading">Loading…</p>;
         }
@@ -80,7 +96,7 @@ class App extends React.Component {
                             <span className={`Match__Home-Team ${isWinner(match, match.home_team.country)}`}> 
 
                                 {match.home_team.country}
-                                
+
                             </span>
 
                             <span className="Match__Score"> {match.home_team.goals} - {match.away_team.goals} </span>

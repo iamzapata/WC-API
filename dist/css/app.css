@@ -6274,7 +6274,11 @@ body {
 
 .ResponseErrored {
   font-size: 2rem;
-  color: crimson;
+  text-align: center;
+}
+
+.ResponseErrored h1 {
+  color: #f16581;
 }
 
 .ResponseLoading {
