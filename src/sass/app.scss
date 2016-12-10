@@ -1,3 +1,91 @@
+@import 'node_modules/bulma/bulma.sass';
+
 body {
-	background: whitesmoke;
+	min-height: 100vh;
+}
+
+#app {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#app > div {
+	flex: 1;
+}
+
+.Heading {
+	font-size: 3rem !important;
+	text-align: center;
+}
+
+.SearchForm {
+	margin-top: 6rem;
+}
+
+.ResponseErrored {
+    font-size: 2rem;
+    color: crimson;
+}
+
+.ResponseLoading {
+	font-size: 2rem;
+    color: black;
+}
+
+.MatchesList {
+	display: block;
+	margin: 0 !important;
+	transition: all 2s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.MatchesList--Hidden {
+	display: none;
+}
+
+.Match {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Match > span {
+	flex: 1;
+	font-size: 1.2rem;
+	margin: 1rem 0;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.Match__Home-Team {
+    text-align: right !important;
+}
+
+.Match__Away-Team {
+    text-align: left !important;
+}
+
+.Match__Location {
+	text-align: right !important;	
+}
+
+.Match__Date {
+	text-align: left !important;	
+}
+
+.Match {
+ 	border-bottom: 1px dashed #9d9d9d;
+ }
+
+.Match__Score {
+ 	font-weight: bold !important;
+ }
+
+.Match:last-child {
+	border: none;
+}
+
+.Match__Winner {
+    font-weight: bold;
 }

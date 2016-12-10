@@ -1,0 +1,17 @@
+window.moment = require('moment');
+
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import configureStore from './store/config'
+
+import App from './components/App';
+
+const store = configureStore(); // You can also pass in an initialState here
+
+render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('app')
+);

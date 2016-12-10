@@ -23,4 +23,6 @@ elixir(mix => {
     mix.sass('app.scss')
 
         .webpack('app.js');      
+
+    mix.copy('node_modules/font-awesome/fonts', 'dist/fonts/')
 })
