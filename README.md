@@ -2,6 +2,6 @@
 
 To get started:
  
-* run `npm install`
-* run `gulp`
-* onpen `index.html` in browser
+* Run `npm install`
+* Run `gulp`
+* Open `index.html` in browser
