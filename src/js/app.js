@@ -7,7 +7,7 @@ import configureStore from './store/config'
 
 import App from './components/App';
 
-const store = configureStore(); // You can also pass in an initialState here
+const store = configureStore();
 
 render(
     <Provider store={store}>
