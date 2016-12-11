@@ -31,7 +31,12 @@ class MatchList extends React.Component {
 
                 <h1 className="Heading"> WOMEN'S WORLD CUP MATCHES </h1>
 
-                <SearchForm countryCode={this.props.countryCode} fetchMatches={this.props.fetchMatches}></SearchForm>
+                <SearchForm 
+                    countryCode={this.props.countryCode} 
+                    fetchMatches={this.props.fetchMatches} 
+                    clearForm={this.props.clearForm}
+                    matches={this.props.matches}>
+                </SearchForm>
 
                  <ul className={matchesListClassNames}>
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { matchesFetchData } from '../actions/matches';
-import MatchList from './MatchList';
+
 import Error from './Error';
 import Loading from './Loading';
+import MatchList from './MatchList';
+import { matchesFetchData, matchesClearData } from '../actions/matches';
 
 /**
  * Main Application Component
@@ -16,11 +17,12 @@ class App extends React.Component {
         // FIFA Country Code.
         this.state = {
 
-            countryCode: ''
+            countryCode: '',
 
         };
 
         this.fetchMatches = this.fetchMatches.bind(this);
+        this.clearForm = this.clearForm.bind(this);
     }
 
     /**
@@ -35,11 +37,21 @@ class App extends React.Component {
 
         this.setState({ countryCode });
 
+        if(countryCode.length == 0) return this.props.clearData();
+
         if(countryCode.length < 3) return;
     
         this.props.fetchData(`http://worldcup.sfg.io/matches/country?fifa_code=${countryCode}`);
 
     }
+
+    clearForm(e) {
+        e.preventDefault();
+
+        this.setState({ countryCode: ''});
+
+        this.props.clearData();
+    } 
 
     render() {
 
@@ -60,7 +72,8 @@ class App extends React.Component {
             <MatchList 
                 countryCode={this.state.countryCode} 
                 matches={this.props.matches} 
-                fetchMatches={this.fetchMatches}>
+                fetchMatches={this.fetchMatches}
+                clearForm={this.clearForm}>
             </MatchList>
             
         );
@@ -70,16 +83,26 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+
     return {
+
         matches: state.matches,
+
         hasErrored: state.matchesHasErrored,
+
         isLoading: state.matchesIsLoading
+
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
+
     return {
-        fetchData: (url) => dispatch(matchesFetchData(url))
+
+        fetchData: (url) => dispatch(matchesFetchData(url)),
+
+        clearData: () => dispatch(matchesClearData())
+
     };
 };
 

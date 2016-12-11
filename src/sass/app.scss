@@ -1,5 +1,7 @@
 @import 'node_modules/bulma/bulma.sass';
 
+@import 'node_modules/font-awesome/scss/font-awesome';
+
 body {
 	min-height: 100vh;
 }
@@ -13,6 +15,61 @@ body {
 
 #app > div {
 	flex: 1;
+}
+
+.SearchForm__Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dbdbdb;
+}
+
+.SearchForm__Container:hover {
+	border: 1px solid;
+    border-radius: 3px;
+    border-color: #b5b5b5 !important;
+}
+
+.SearchForm:hover .SearchForm_Clear,
+.SearchForm:hover .SearchForm__Input { 
+	border: none;
+}
+
+.SearchForm__Container:active {
+    border-color: #00d1b2 !important;
+    outline: none;
+}
+
+.SearchForm__Input {
+    flex: 30;
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+}
+
+.SearchForm__Input:hover {
+	border: none;
+}
+
+.SearchForm__Input:active {
+	border: none;	
+}
+
+.SearchForm_Clear {
+    flex: 1;
+    height: 100% !important;
+    border-left: 0;
+    border-radius: 3px !important;   
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SearchForm_Clear:hover {
+	border: none;
 }
 
 .Heading {

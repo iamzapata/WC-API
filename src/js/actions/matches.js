@@ -2,6 +2,12 @@
  * Actions
  */
 
+/**
+ * MATCHES_HAS_ERRORED Action Creator
+ * 
+ * @param  bool Indicates if the fetch action has failed.
+ * @return object Contains state change and action to dispatch.
+ */
 export function matchesHasErrored(bool) {
 
     return {
@@ -11,6 +17,12 @@ export function matchesHasErrored(bool) {
     
 }
 
+/**
+ * MATCHES_IS_LOADING Action Creator
+ * 
+ * @param  bool Indicates if the fetch action is active
+ * @return object Contains state change and action to dispatch.
+ */
 export function matchesIsLoading(bool) {
 
     return {
@@ -20,6 +32,12 @@ export function matchesIsLoading(bool) {
 
 }
 
+/**
+ * MATCHES_FETCH_DATA_SUCCESS Action Creator
+ * 
+ * @param  array matches List of fetched matches
+ * @return object Contains state change and action to dispatch.
+ */
 export function matchesFetchDataSuccess(matches) {
 
     return {
@@ -29,18 +47,43 @@ export function matchesFetchDataSuccess(matches) {
 
 }
 
+/**
+ * MATCHES_CLEAR_DATA Action Creator
+ * 
+ * @return object Contains state change and action to dispatch.
+ */
+export function matchesClearData() {
+
+    return {
+        type: 'MATCHES_CLEAR_DATA'
+    }
+
+}
+
+/**
+ * Manages different states based on fetch state.
+ * 
+ * @param  string url
+ * @return void
+ */
 export function matchesFetchData(url) {
 
     return (dispatch) => {
+
         dispatch(matchesIsLoading(true));
 
         fetch(url)
 
             .then((response) => {
+
                 if (!response.ok) {
+
                     throw Error(response.statusText);
+
                 }
+
                 dispatch(matchesIsLoading(false));
+
                 return response;
             })
 
@@ -49,5 +92,7 @@ export function matchesFetchData(url) {
             .then((matches) => dispatch(matchesFetchDataSuccess(matches)))
 
             .catch(() => dispatch(matchesHasErrored(true)));
+
     };
+
 }

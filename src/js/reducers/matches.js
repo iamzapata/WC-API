@@ -2,35 +2,52 @@
  * Reducers
  */
 
+/**
+ * MATCHES_HAS_ERRORED Reducer
+ */
 export function matchesHasErrored(state = false, action) {
 
-    switch (action.type) {
-        case 'MATCHES_HAS_ERRORED':
-            return action.hasErrored;
-        default:
-            return state;
+    const actions = {
+
+        MATCHES_HAS_ERRORED: () => action.hasErrored,
+
+        default: () => state
     }
+
+    return  (actions[action.type] || actions['default'])();
 
 }
 
+/**
+ * MATCHES_IS_LOADING Reducer
+ */
 export function matchesIsLoading(state = false, action) {
 
-    switch (action.type) {
-        case 'MATCHES_IS_LOADING':
-            return action.isLoading;
-        default:
-            return state;
+    const actions = {
+
+        MATCHES_IS_LOADING: () => action.isLoading,
+
+        default: () => state
     }
+
+    return  (actions[action.type] || actions['default'])();
 
 }
 
+/**
+ * MATCHES_FETCH_DATA_SUCCESS Reducer
+ */
 export function matches(state = [], action) {
 
-    switch (action.type) {
-        case 'MATCHES_FETCH_DATA_SUCCESS':
-            return action.matches;
-        default:
-            return state;
+    const actions = {
+
+        MATCHES_FETCH_DATA_SUCCESS: () => action.matches,
+
+        MATCHES_CLEAR_DATA: () => [],
+
+        default: () => state
     }
+
+    return (actions[action.type] || actions['default'])();
     
 }
